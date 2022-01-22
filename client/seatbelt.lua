@@ -26,6 +26,8 @@ RegisterCommand('toggleseatbelt', function()
         local class = GetVehicleClass(GetVehiclePedIsUsing(PlayerPedId()))
         if class ~= 8 and class ~= 13 and class ~= 14 then
             ToggleSeatbelt()
+		elseif class == 14 then
+			TriggerEvent('NOSECS_Fishing:Anchor')
         end
     end
 end, false)
@@ -53,7 +55,6 @@ RegisterNetEvent('seatbelt:client:UseHarness', function(ItemData) -- On Item Use
             end)
             harnessHp = ItemData.info.uses
             harnessData = ItemData
-            TriggerEvent('hud:client:UpdateHarness', harnessHp)
         else
             LocalPlayer.state:set("inv_busy", true, true)
             QBCore.Functions.Progressbar("harness_equip", "Removing Race Harness", 5000, false, true, {
@@ -108,14 +109,30 @@ end
 
 -- Main Thread
 
+CreateThread(function ()
+    while true do
+        if IsPedInAnyVehicle(PlayerPedId()) then
+            if seatbeltOn or harnessOn then
+                if IsControlJustReleased(0,  75) then
+                    QBCore.Functions.Notify("Remove your seatbelt")
+                end
+            end
+        end
+        Wait(0)
+    end
+end)
+
 CreateThread(function()
     while true do
         sleep = 1000
         if IsPedInAnyVehicle(PlayerPedId()) then
             sleep = 10
             if seatbeltOn or harnessOn then
-                DisableControlAction(0, 75, true)
-                DisableControlAction(27, 75, true)
+                SetVehicleDoorsLocked(GetVehiclePedIsIn(PlayerPedId()), 4)
+                --DisableControlAction(0, 75, true)
+                --DisableControlAction(27, 75, true)
+            else
+                SetVehicleDoorsLocked(GetVehiclePedIsIn(PlayerPedId()), 0)
             end
         else
             seatbeltOn = false

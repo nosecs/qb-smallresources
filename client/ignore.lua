@@ -52,13 +52,9 @@ CreateThread(function()
 	for i = 1, 15 do
 		EnableDispatchService(i, false)
 	end
-
+		
 	SetMaxWantedLevel(0)
 end)
-
-if Config.IdleCamera then --Disable Idle Cinamatic Cam
-  	DisableIdleCamera(true)
-end
 
 CreateThread(function()
     while true do
@@ -82,12 +78,4 @@ CreateThread(function()
 		end
         Wait(7)
     end
-end)
-
-CreateThread(function()
-    local pedPool = GetGamePool('CPed')
-    for k,v in pairs(pedPool) do
-        SetPedDropsWeaponsWhenDead(v, false)
-    end
-    Wait(500)
 end)
