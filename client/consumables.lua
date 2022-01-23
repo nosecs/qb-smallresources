@@ -457,9 +457,9 @@ RegisterNetEvent('consumables:client:UseHeavyArmor', function()
             currentVest = GetPedDrawableVariation(ped, 9)
             currentVestTexture = GetPedTextureVariation(ped, 9)
             if GetPedDrawableVariation(ped, 9) == 7 then
-                SetPedComponentVariation(ped, 9, 19, GetPedTextureVariation(ped, 9), 2)
+                SetPedComponentVariation(ped, 9, 20, 9, 2)
             else
-                SetPedComponentVariation(ped, 9, 5, 2, 2) -- Blue
+                SetPedComponentVariation(ped, 9, 20, 9, 2) -- Blue
             end
         else
             currentVest = GetPedDrawableVariation(ped, 30)
@@ -491,6 +491,18 @@ RegisterNetEvent('consumables:client:ResetArmor', function()
     end
 end)
 
+RegisterCommand('propstuck', function()
+    for k, v in pairs(GetGamePool('CObject')) do
+        if IsEntityAttachedToEntity(PlayerPedId(), v) then
+            SetEntityAsMissionEntity(v, true, true)
+            DeleteObject(v)
+            DeleteEntity(v)
+        end
+    end
+end)
+	
+
+	
 -- RegisterNetEvent('consumables:client:UseRedSmoke', function()
 --     if ParachuteEquiped then
 --         local ped = PlayerPedId()

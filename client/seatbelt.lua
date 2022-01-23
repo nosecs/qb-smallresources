@@ -26,6 +26,8 @@ RegisterCommand('toggleseatbelt', function()
         local class = GetVehicleClass(GetVehiclePedIsUsing(PlayerPedId()))
         if class ~= 8 and class ~= 13 and class ~= 14 then
             ToggleSeatbelt()
+        elseif class == 14 then
+			TriggerEvent('NOSECS_Fishing:Anchor')
         end
     end
 end, false)
@@ -107,6 +109,19 @@ function HasHarness()
 end
 
 -- Main Thread
+
+CreateThread(function ()
+    while true do
+        if IsPedInAnyVehicle(PlayerPedId()) then
+            if seatbeltOn or harnessOn then
+                if IsDisabledControlJustPressed(0,  75) then
+                    QBCore.Functions.Notify("Remove your seatbelt")
+                end
+            end
+        end
+        Wait(0)
+    end
+end)
 
 CreateThread(function()
     while true do

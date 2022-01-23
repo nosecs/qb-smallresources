@@ -95,6 +95,7 @@ function ResetAnimSet()
         SetPedMovementClipset(ped, walkSet, 1)
         RemoveAnimSet(walkSet)
     end
+    TriggerServerEvent('qb-walkstyles:server:walkstyles', 'get') -- qb-walking-styles CODE
 end
 
 function RequestWalking(set)

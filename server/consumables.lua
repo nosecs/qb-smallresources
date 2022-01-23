@@ -30,6 +30,14 @@ QBCore.Functions.CreateUseableItem("sandwich", function(source, item)
     end
 end)
 
+QBCore.Functions.CreateUseableItem("cheese_pizza", function(source, item)
+    local src = source
+    local Player = QBCore.Functions.GetPlayer(src)
+	if Player.Functions.RemoveItem(item.name, 1, item.slot) then
+        TriggerClientEvent("consumables:client:Eat", src, item.name)
+    end
+end)
+
 QBCore.Functions.CreateUseableItem("twerks_candy", function(source, item)
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
@@ -115,6 +123,7 @@ QBCore.Functions.CreateUseableItem("meth", function(source, item)
     TriggerClientEvent("consumables:client:meth", src)
 end)
 
+
 ----------- / Tools
 
 QBCore.Functions.CreateUseableItem("armor", function(source, item)
@@ -140,6 +149,16 @@ end)
 QBCore.Functions.CreateUseableItem("binoculars", function(source, item)
     local src = source
     TriggerClientEvent("binoculars:Toggle", src)
+end)
+
+QBCore.Functions.CreateUseableItem("fishing_rod", function(source, item)
+    local src = source
+    TriggerClientEvent("NOSECS_Fishing:StartFishing", src)
+end)
+
+QBCore.Functions.CreateUseableItem("anchor", function(source, item)
+    local src = source
+    TriggerClientEvent("NOSECS_Fishing:Anchor", src)
 end)
 
 QBCore.Functions.CreateUseableItem("parachute", function(source, item)

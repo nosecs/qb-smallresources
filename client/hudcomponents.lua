@@ -28,3 +28,33 @@ CreateThread(function()-- https://docs.fivem.net/natives/?_0x6806C51AD12B83B8
 		Wait(4)
     end
 end)
+
+Citizen.CreateThread(function()
+	local isSniper = false
+	while true do
+		Citizen.Wait(0)
+
+    	local ped = GetPlayerPed(-1)
+		local currentWeaponHash = GetSelectedPedWeapon(ped)
+
+		if currentWeaponHash == 100416529 then
+			isSniper = true
+		elseif currentWeaponHash == 205991906 then
+			isSniper = true
+		elseif currentWeaponHash == -952879014 then
+			isSniper = true
+		elseif currentWeaponHash == 177293209 then
+			isSniper = true
+		elseif currentWeaponHash == 1785463520 then
+			isSniper = true
+		else
+			isSniper = false
+		end
+		
+		if isSniper and IsControlPressed(0, 25) then
+			DisplaySniperScopeThisFrame()
+		elseif not isSniper then
+			HideHudComponentThisFrame(14)
+		end
+	end
+end)
