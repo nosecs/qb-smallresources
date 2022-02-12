@@ -55,6 +55,7 @@ ConsumeablesDrink = {
     ["mocha"] = math.random(25, 40),
     ["hot_chocolate"] = math.random(25, 40),
     ["chai_latte"] = math.random(25, 40),
+    ["water_cup"] = math.random(5, 10),
 }
 
 ConsumeablesAlcohol = {
