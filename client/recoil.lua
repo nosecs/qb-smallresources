@@ -125,7 +125,7 @@ local recoils = {
 CreateThread(function()
 	while true do
 		local ped = PlayerPedId()
-		if IsPedShooting(ped) and not IsPedDoingDriveby(ped) then
+		if IsPedShooting(ped) or IsPedInAnyVehicle(ped) and IsPedShooting(ped) then
 			local _,wep = GetCurrentPedWeapon(ped)
 			_,cAmmo = GetAmmoInClip(ped, wep)
 			if recoils[wep] and recoils[wep] ~= 0 then
