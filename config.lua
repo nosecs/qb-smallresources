@@ -294,6 +294,12 @@ Config.Blips = { -- https://wiki.rage.mp/index.php?title=Blips
         coords = vector3(759.06, -777.79, 26.46), -- Blip location
         blip = 106, -- Blip icon
         color = 0 -- Blip color
+    },
+    [12] = {
+        label = "Pop's Diner", -- Blip name
+        coords = vector3(1588.86, 6456.58, 26.01), -- Blip location
+        blip = 52, -- Blip icon
+        color = 0 -- Blip color
     }
 }
 
