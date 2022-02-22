@@ -474,6 +474,14 @@ QBCore.Functions.CreateUseableItem("firework4", function(source, item)
     TriggerClientEvent("fireworks:client:UseFirework", src, item.name, "scr_indep_fireworks")
 end)
 
+QBCore.Functions.CreateUseableItem("taserammo", function(source, item)
+    local src = source
+    local Player = QBCore.Functions.GetPlayer(source)
+    if Player.Functions.RemoveItem(item.name, 1, item.slot) then
+        TriggerClientEvent("FillTazer", source)
+    end
+end)
+
 ----------- / Lockpicking
 
 QBCore.Functions.CreateUseableItem("lockpick", function(source, item)
