@@ -176,7 +176,8 @@ Config.BlacklistedPeds = {
 }
 
 Config.Teleports = {
-    --Elevator @ labs
+    --Elevator @ labs--
+    --[[
     [1] = {
         [1] = {
             coords = vector4(3540.74, 3675.59, 20.99, 167.5),
@@ -203,6 +204,7 @@ Config.Teleports = {
             drawText = '[E] Leave'
         },
     },
+    --]]
 }
 
 Config.CarWash = { -- carwash
