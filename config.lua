@@ -41,6 +41,24 @@ ConsumeablesEat = {
     ["candy_box"] = math.random(4, 8),
     ["ps_qs"] = math.random(4, 8),
     ["release_candy"] = math.random(4, 8),
+    ["small_fries"] = math.random(20, 30),
+    ["medium_fries"] = math.random(30, 40),
+    ["big_fries"] = math.random(40, 50),
+    ["onion_rings"] = math.random(10, 15),
+    ["chicken_nuggets"] = math.random(20, 30),
+    ["bleeder_burger"] = math.random(60, 75),
+    ["heart_stopper_burger"] = math.random(80, 90),
+    ["prickly_burger"] = math.random(40, 60),
+    ["cheesy_burger"] = math.random(40, 60),
+    ["double_shot_burger"] = math.random(40, 60),
+    ["the_simply_burger"] = math.random(40, 60),
+    ["the_glorious_burger"] = math.random(40, 60),
+    ["single_shot_sandwhich"] = math.random(20, 30),
+    ["double_barrel_sandwhich"] = math.random(25, 40),
+    ["mexican_taco"] = math.random(40, 60),
+    ["chicken_wrap"] = math.random(40, 60),
+    ["goat_cheese_wrap"] = math.random(40, 60),
+    ["ring_donuts"] = math.random(10, 15),
 }
 
 ConsumeablesDrink = {
@@ -56,6 +74,7 @@ ConsumeablesDrink = {
     ["hot_chocolate"] = math.random(25, 40),
     ["chai_latte"] = math.random(25, 40),
     ["water_cup"] = math.random(5, 10),
+    ["sludgie"] = math.random(25, 40),
 }
 
 ConsumeablesAlcohol = {
