@@ -380,6 +380,40 @@ RegisterNetEvent('consumables:client:UseJoint', function()
     end)
 end)
 
+RegisterNetEvent('consumables:client:weedbrick', function()
+    QBCore.Functions.Progressbar("weed_brick", "Making bags..", 5000, false, true, {
+        disableMovement = false,
+        disableCarMovement = false,
+		disableMouse = false,
+		disableCombat = true,
+    }, {}, {}, {}, function() -- Done
+        TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["weed_brick"], "remove")
+        if IsPedInAnyVehicle(PlayerPedId(), false) then
+            TriggerEvent('animations:client:EmoteCommandStart', {"mechanic"})
+        else
+            TriggerEvent('animations:client:EmoteCommandStart', {"mechanic"})
+        end
+        TriggerServerEvent("QBCore:Server:AddItem", "weed_bag", 20)
+    end)
+end)
+
+RegisterNetEvent('consumables:client:weedbag', function()
+    QBCore.Functions.Progressbar("weed_bag", "Making joints..", 5000, false, true, {
+        disableMovement = false,
+        disableCarMovement = false,
+		disableMouse = false,
+		disableCombat = true,
+    }, {}, {}, {}, function() -- Done
+        TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["weed_bag"], "remove")
+        if IsPedInAnyVehicle(PlayerPedId(), false) then
+            TriggerEvent('animations:client:EmoteCommandStart', {"mechanic"})
+        else
+            TriggerEvent('animations:client:EmoteCommandStart', {"mechanic"})
+        end
+        TriggerServerEvent("QBCore:Server:AddItem", "joint", 5)
+    end)
+end)
+
 RegisterNetEvent('consumables:client:UseParachute', function()
     EquipParachuteAnim()
     QBCore.Functions.Progressbar("use_parachute", "parachute using..", 5000, false, true, {
