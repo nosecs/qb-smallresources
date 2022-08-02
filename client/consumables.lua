@@ -386,13 +386,9 @@ RegisterNetEvent('consumables:client:weedbrick', function()
         disableCarMovement = false,
 		disableMouse = false,
 		disableCombat = true,
+        TriggerEvent('animations:client:EmoteCommandStart', {"mechanic"})
     }, {}, {}, {}, function() -- Done
-        TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["weed_brick"], "remove")
-        if IsPedInAnyVehicle(PlayerPedId(), false) then
-            TriggerEvent('animations:client:EmoteCommandStart', {"mechanic"})
-        else
-            TriggerEvent('animations:client:EmoteCommandStart', {"mechanic"})
-        end
+        TriggerServerEvent("QBCore:Server:RemoveItem", "weed_brick", 1)
         TriggerServerEvent("QBCore:Server:AddItem", "weed_bag", 20)
     end)
 end)
@@ -403,13 +399,9 @@ RegisterNetEvent('consumables:client:weedbag', function()
         disableCarMovement = false,
 		disableMouse = false,
 		disableCombat = true,
+        TriggerEvent('animations:client:EmoteCommandStart', {"mechanic"})
     }, {}, {}, {}, function() -- Done
-        TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["weed_bag"], "remove")
-        if IsPedInAnyVehicle(PlayerPedId(), false) then
-            TriggerEvent('animations:client:EmoteCommandStart', {"mechanic"})
-        else
-            TriggerEvent('animations:client:EmoteCommandStart', {"mechanic"})
-        end
+        TriggerServerEvent("QBCore:Server:RemoveItem", "weed_bag", 1)
         TriggerServerEvent("QBCore:Server:AddItem", "joint", 5)
     end)
 end)
