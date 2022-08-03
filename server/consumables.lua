@@ -557,6 +557,26 @@ QBCore.Functions.CreateUseableItem("weed_bag", function(source, item)
     TriggerClientEvent("consumables:client:weedbag", src)
 end)
 
+QBCore.Functions.CreateUseableItem("meth_brick", function(source, item)
+    local src = source
+    TriggerClientEvent("consumables:client:methbrick", src)
+end)
+
+QBCore.Functions.CreateUseableItem("meth_bag", function(source, item)
+    local src = source
+    TriggerClientEvent("consumables:client:methbag", src)
+end)
+
+QBCore.Functions.CreateUseableItem("coke_brick", function(source, item)
+    local src = source
+    TriggerClientEvent("consumables:client:cokebrick", src)
+end)
+
+QBCore.Functions.CreateUseableItem("coke_bag", function(source, item)
+    local src = source
+    TriggerClientEvent("consumables:client:cokebag", src)
+end)
+
 
 ----------- / Tools
 

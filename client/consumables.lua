@@ -408,6 +408,62 @@ RegisterNetEvent('consumables:client:weedbag', function()
     end)
 end)
 
+RegisterNetEvent('consumables:client:methbrick', function()
+    QBCore.Functions.Progressbar("weed_brick", "Making meth bags..", 5000, false, true, {
+        disableMovement = false,
+        disableCarMovement = false,
+		disableMouse = false,
+		disableCombat = true,
+        TriggerEvent('animations:client:EmoteCommandStart', {"mechanic"})
+    }, {}, {}, {}, function() -- Done
+        TriggerServerEvent("QBCore:Server:RemoveItem", "meth_brick", 1)
+        TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["meth_brick"], "remove")
+        TriggerServerEvent("QBCore:Server:AddItem", "meth_bag", 20)
+    end)
+end)
+
+RegisterNetEvent('consumables:client:methbag', function()
+    QBCore.Functions.Progressbar("meth_bag", "Making meth..", 5000, false, true, {
+        disableMovement = false,
+        disableCarMovement = false,
+		disableMouse = false,
+		disableCombat = true,
+        TriggerEvent('animations:client:EmoteCommandStart', {"mechanic"})
+    }, {}, {}, {}, function() -- Done
+        TriggerServerEvent("QBCore:Server:RemoveItem", "meth_bag", 1)
+        TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["meth_bag"], "remove")
+        TriggerServerEvent("QBCore:Server:AddItem", "meth", 5)
+    end)
+end)
+
+RegisterNetEvent('consumables:client:cokebrick', function()
+    QBCore.Functions.Progressbar("coke_brick", "Making coke bags..", 5000, false, true, {
+        disableMovement = false,
+        disableCarMovement = false,
+		disableMouse = false,
+		disableCombat = true,
+        TriggerEvent('animations:client:EmoteCommandStart', {"mechanic"})
+    }, {}, {}, {}, function() -- Done
+        TriggerServerEvent("QBCore:Server:RemoveItem", "coke_brick", 1)
+        TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["coke_brick"], "remove")
+        TriggerServerEvent("QBCore:Server:AddItem", "coke_bag", 20)
+    end)
+end)
+--[[
+RegisterNetEvent('consumables:client:cokebag', function()
+    QBCore.Functions.Progressbar("coke_bag", "Making coke..", 5000, false, true, {
+        disableMovement = false,
+        disableCarMovement = false,
+		disableMouse = false,
+		disableCombat = true,
+        TriggerEvent('animations:client:EmoteCommandStart', {"mechanic"})
+    }, {}, {}, {}, function() -- Done
+        TriggerServerEvent("QBCore:Server:RemoveItem", "coke_bag", 1)
+        TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["coke_bag"], "remove")
+        TriggerServerEvent("QBCore:Server:AddItem", "coke", 5)
+    end)
+end)
+]]
 RegisterNetEvent('consumables:client:UseParachute', function()
     EquipParachuteAnim()
     QBCore.Functions.Progressbar("use_parachute", "parachute using..", 5000, false, true, {
